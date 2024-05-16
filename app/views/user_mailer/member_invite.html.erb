@@ -3,4 +3,8 @@
 <p>
 Welcome to the Slack App! Click on the link below to confirm your account:
 </p>
-<%= link_to "Invite", "#{CONSTANTS::SLACK_APP_LINK}?email=#{@i_user.email}&workspaceid=#{@i_workspace.id}&channelid=#{@i_channel.id}&channel_name=#{@i_channel.channel_name}&workspace_name=#{@i_workspace.workspace_name}" %>
+<% if @ruby_ui.present? %>
+  <%= link_to "Invite", "#{CONSTANTS::SLACK_APP_RUBY_LINK}?email=#{@i_user.email}&workspaceid=#{@i_workspace.id}&channelid=#{@i_channel.id}&channel_name=#{@i_channel.channel_name}&workspace_name=#{@i_workspace.workspace_name}" %>
+<% else %>
+  <%= link_to "Invite", "#{CONSTANTS::SLACK_APP_FLUTTER_LINK}?email=#{@i_user.email}&workspaceid=#{@i_workspace.id}&channelid=#{@i_channel.id}&channel_name=#{@i_channel.channel_name}&workspace_name=#{@i_workspace.workspace_name}" %>
+<% end %>
